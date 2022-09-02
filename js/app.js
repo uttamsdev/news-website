@@ -11,6 +11,7 @@ const toggleSearchResult = displayStyle => {
 toggleSpinner('none');
 
 const dataCount = document.getElementById("count");
+dataCount.style.display = "none";
 const  ul = document.querySelector('#nav');
 const loadNav = () => {
     toggleSearchResult('none');
@@ -50,16 +51,20 @@ const displayNews = (id) => {
 }
 
 const showNews = (allNews) => {
+    const newsResult = document.querySelector(".news-result");
+    newsResult.textContent = "";
     console.log("len",allNews.length);
     const count = allNews.length;
     if(count !== 0){
-        dataCount.innerText = `${count}  items found for category`;
+        dataCount.innerText = `${count}  items found for this category`;
     }
     else {
         dataCount.innerText = `No news found`;
+        toggleSpinner('none');
+        newsResult.textContent = "";
+        return;
     }
-    const newsResult = document.querySelector(".news-result");
-    newsResult.textContent = "";
+   
     console.log(allNews);
     allNews?.forEach(news => {
         // author name: news?.author?.name
@@ -93,6 +98,7 @@ const showNews = (allNews) => {
         `
         newsResult.appendChild(div);
         toggleSpinner('none');
+        dataCount.style.display = "block";
         toggleSearchResult('block');
     })
 }
