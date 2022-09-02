@@ -15,3 +15,9 @@
     color: red;
     
 }
+
+@media (max-width:688px) {
+    .qsn{
+        width: 80%;
+    }
+}

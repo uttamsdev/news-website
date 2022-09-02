@@ -134,3 +134,24 @@ color: #121221;
     margin-left: 80px;
     margin-bottom: 20px;
 }
+
+@media (max-width:688px) {
+    #count{
+        width: 100%;
+    }
+    #nav{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .news{
+        width: 100%;
+    }
+    .news-details{
+        flex-direction: column;
+    }
+    .news-x{
+        flex-direction: column;
+    }
+}
