@@ -53,7 +53,7 @@ const displayNews = (id) => {
 const showNews = (allNews) => {
     const newsResult = document.querySelector(".news-result");
     newsResult.textContent = "";
-    console.log("len",allNews.length);
+    // console.log("len",allNews.length);
     const count = allNews.length;
     if(count !== 0){
         dataCount.innerText = `${count}  items found for this category`;
@@ -65,7 +65,7 @@ const showNews = (allNews) => {
         return;
     }
    
-    console.log(allNews);
+    // console.log(allNews);
     allNews?.forEach(news => {
         // author name: news?.author?.name
         // news title : news?.title
@@ -87,7 +87,7 @@ const showNews = (allNews) => {
                     <div class="author-det">
                     <img class="author-img" src="${news?.author?.img}" alt="">
                     <div><p class="author-name">${news?.author?.name ? news?.author?.name :  "Data not available" }</p>
-                    <p class="autor-date">${news?.author?.published_date.split(" ")[0]}</p> </div>
+                    <p class="autor-date">${news?.author?.published_date ? news?.author?.published_date.split(" ")[0] :  "No date found"}</p>  </div>
                     </div>
                     <p><i class="fa-regular fa-eye"> </i><span class="rating">${news?.total_view ? news?.total_view : 'Data not available'}</span></p>
                     <p><b>Rating:</b> ${news?.rating?.number}</p>
@@ -111,10 +111,10 @@ const loadNewsModal = (id) => {
     fetch(`https://openapi.programming-hero.com/api/news/${id}`)
     .then(res => res.json())
     .then(data => showNewsModal(data?.data)).catch((err) => {
-        console.log(err)
+        // console.log(err)
     });
-    console.log("my id is",id);
-    console.log("testing");
+    // console.log("my id is",id);
+    // console.log("testing");
 }
 // toggleSpinner("none");
 
@@ -136,7 +136,7 @@ const showNewsModal = (news) => {
             <div class="author-det">
             <img class="author-img" src="${news[0]?.author?.img}" alt="">
             <div><p class="author-name">${news[0]?.author?.name ? news[0]?.author?.name :  "Data not available" }</p>
-            <p class="autor-date">${news[0]?.author?.published_date.split(" ")[0]}</p> </div>
+            <p class="autor-date">${news[0]?.author?.published_date ? news[0]?.author?.published_date.split(" ")[0] :  "No date found"}</p></div>
             </div>
             <p><i class="fa-regular fa-eye"> </i><span class="rating">${news[0]?.total_view ? news[0]?.total_view : 'Data not available'}</span></p>
             <p><b>Rating:</b> ${news[0]?.rating?.number}</p>
