@@ -86,7 +86,7 @@ const showNews = (allNews) => {
                     </div>
                     <p><i class="fa-regular fa-eye"> </i><span class="rating">${news?.total_view ? news?.total_view : 'Data not available'}</span></p>
                     <p><b>Rating:</b> ${news?.rating?.number}</p>
-                    <i class="fa-sharp fa-solid fa-arrow-right" id="${news?._id}" onclick="loadNewsModal(id)"></i>
+                    <i class="fa-sharp fa-solid fa-arrow-right" id="${news?._id}" onclick="loadNewsModal(id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
                 </div>
             </div>
         </div>
@@ -115,4 +115,29 @@ const loadNewsModal = (id) => {
 // show news modal
 const showNewsModal = (news) => {
     console.log(news);
+    const modalBody = document.querySelector(".modal-body");
+    modalBody.innerHTML = `
+    <div class="news-details">
+    <div>
+        <div class="">
+        <img class="modal-img" src="${news[0]?.image_url}" alt="">
+        <div>
+            <h3>${news[0]?.title}</h3>
+            <p class="news-desc">${news[0]?.details.slice(0,400)}<span title="more...">...</span></p>
+        </div>
+         </div>
+        <div class="author-info">
+            <div class="author-det">
+            <img class="author-img" src="${news[0]?.author?.img}" alt="">
+            <div><p class="author-name">${news[0]?.author?.name ? news[0]?.author?.name :  "Data not available" }</p>
+            <p class="autor-date">${news[0]?.author?.published_date.split(" ")[0]}</p> </div>
+            </div>
+            <p><i class="fa-regular fa-eye"> </i><span class="rating">${news[0]?.total_view ? news[0]?.total_view : 'Data not available'}</span></p>
+            <p><b>Rating:</b> ${news[0]?.rating?.number}</p>
+            <i class="fa-sharp fa-solid fa-arrow-right" id="${news?._id}" onclick="loadNewsModal(id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+        </div>
+    </div>
+</div>
+    `
+    
 }
