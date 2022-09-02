@@ -10,6 +10,7 @@ const toggleSearchResult = displayStyle => {
 
 toggleSpinner('none');
 
+const dataCount = document.getElementById("count");
 const  ul = document.querySelector('#nav');
 const loadNav = () => {
     toggleSearchResult('none');
@@ -24,7 +25,7 @@ const displayNav = (categories) => {
     categories?.forEach(category => {
         count++;
         const li = document.createElement("li");
-        li.innerHTML = `<a href="#" id="0${count}" onclick="displayNews(id)">${category?.category_name}</a>`;
+        li.innerHTML = `<a href="#" id="0${count}"  onclick="displayNews(id)">${category?.category_name}</a>`;
         ul.appendChild(li);
     })
 }
@@ -45,6 +46,14 @@ const displayNews = (id) => {
 }
 
 const showNews = (allNews) => {
+    console.log("len",allNews.length);
+    const count = allNews.length;
+    if(count !== 0){
+        dataCount.innerText = `${count}  items found for category`;
+    }
+    else {
+        dataCount.innerText = `No items found for category`;
+    }
     const newsResult = document.querySelector(".news-result");
     newsResult.textContent = "";
     console.log(allNews);
@@ -83,3 +92,5 @@ const showNews = (allNews) => {
         toggleSearchResult('block');
     })
 }
+
+// toggleSpinner("none");

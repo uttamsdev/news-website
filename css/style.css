@@ -121,3 +121,11 @@ color: #121221;
     /* font-weight: 500; */
     font-size: 20px;
 }
+#count{
+    width: 1000px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
