@@ -120,6 +120,7 @@ color: #121221;
     color: #5D5FEF;
     /* font-weight: 500; */
     font-size: 20px;
+    cursor: pointer;
 }
 #count{
     width: 1000px;

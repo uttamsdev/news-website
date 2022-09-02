@@ -86,7 +86,7 @@ const showNews = (allNews) => {
                     </div>
                     <p><i class="fa-regular fa-eye"> </i><span class="rating">${news?.total_view ? news?.total_view : 'Data not available'}</span></p>
                     <p><b>Rating:</b> ${news?.rating?.number}</p>
-                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                    <i class="fa-sharp fa-solid fa-arrow-right" id="${news?._id}" onclick="loadNewsModal(id)"></i>
                 </div>
             </div>
         </div>
@@ -97,4 +97,22 @@ const showNews = (allNews) => {
     })
 }
 
+
+
+// modal data load
+const loadNewsModal = (id) => {
+
+    fetch(`https://openapi.programming-hero.com/api/news/${id}`)
+    .then(res => res.json())
+    .then(data => showNewsModal(data?.data)).catch((err) => {
+        console.log(err)
+    });
+    console.log("my id is",id);
+    console.log("testing");
+}
 // toggleSpinner("none");
+
+// show news modal
+const showNewsModal = (news) => {
+    console.log(news);
+}
