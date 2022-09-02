@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+    background: #F6F6F6;
+}
+.logo h4{
+    font-family: 'Lobster', cursive !important;
+    font-size: 25px;
+
+}
+.nav-items ul{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.nav-items ul li a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #A3A3A3;
+    font-weight: 500;
+}
+.hr{
+    height: 2px;
+    background: #CDCDCD;
+    margin: 20px 0;
+    margin: 0 auto;
+    padding: 0;
+    width: 70%;
+}
+main{
+    background: #F6F6F6;
+}
+#nav{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 20px;
+}
+#nav a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #858585;
+    /* font-weight: 500; */
+}
+.news-details img{
+    width: 300px;
+    height: 250px;
+}
+.news-details{
+    display: flex;
+    gap: 15px;
+
+}
+.news{
+    margin-bottom: 30px;
+    width: 1170px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+}
+.news h3{
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 140%;
+color: #121221;
+}
+.news-desc{
+    color: #949494;
+    line-height: 25px;
+}
