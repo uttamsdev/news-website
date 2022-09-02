@@ -46,7 +46,7 @@ const showNews = (allNews) => {
             <img src="${news?.image_url}" alt="">
             <div>
                 <h3>${news?.title}</h3>
-                <p class="news-desc">${news?.details}</p>
+                <p class="news-desc">${news?.details.slice(0,700)}<span title="more...">...</span></p>
             </div>
         </div>
         `
