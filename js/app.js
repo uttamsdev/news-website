@@ -16,7 +16,9 @@ const loadNav = () => {
     toggleSearchResult('none');
     fetch("https://openapi.programming-hero.com/api/news/categories")
     .then(res => res.json())
-    .then(data => displayNav(data?.data?.news_category))
+    .then(data => displayNav(data?.data?.news_category)).catch((err) => {
+        console.log(err);
+      });
 }
 
 let count = 0;
@@ -42,7 +44,9 @@ const displayNews = (id) => {
     // newsResult.textContent = "";
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(res => res.json())
-    .then(data => showNews(data?.data))
+    .then(data => showNews(data?.data)).catch((err) => {
+        console.log(err);
+      });
 }
 
 const showNews = (allNews) => {
@@ -52,7 +56,7 @@ const showNews = (allNews) => {
         dataCount.innerText = `${count}  items found for category`;
     }
     else {
-        dataCount.innerText = `No items found for category`;
+        dataCount.innerText = `No news found`;
     }
     const newsResult = document.querySelector(".news-result");
     newsResult.textContent = "";
