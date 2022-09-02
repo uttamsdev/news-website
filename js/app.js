@@ -1,5 +1,18 @@
+// toggle spinner 
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle;
+}
+//toggle search result
+const toggleSearchResult = displayStyle => {
+    document.getElementById('search-result-toggle').style.display = displayStyle;
+}
+
+
+toggleSpinner('none');
+
 const  ul = document.querySelector('#nav');
 const loadNav = () => {
+    toggleSearchResult('none');
     fetch("https://openapi.programming-hero.com/api/news/categories")
     .then(res => res.json())
     .then(data => displayNav(data?.data?.news_category))
@@ -23,6 +36,7 @@ loadNav();
 // })
 
 const displayNews = (id) => {
+    toggleSpinner('block');
     // console.log(id);
     // newsResult.textContent = "";
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
@@ -54,10 +68,10 @@ const showNews = (allNews) => {
                 <div class="author-info">
                     <div class="author-det">
                     <img class="author-img" src="${news?.author?.img}" alt="">
-                    <div><p class="author-name">${news?.author?.name}</p>
+                    <div><p class="author-name">${news?.author?.name ? news?.author?.name :  "Data not available" }</p>
                     <p class="autor-date">${news?.author?.published_date.split(" ")[0]}</p> </div>
                     </div>
-                    <p><i class="fa-regular fa-eye"> </i><span class="rating">${news?.total_view ? news?.total_view : 'Not Found'}</span></p>
+                    <p><i class="fa-regular fa-eye"> </i><span class="rating">${news?.total_view ? news?.total_view : 'Data not available'}</span></p>
                     <p><b>Rating:</b> ${news?.rating?.number}</p>
                     <i class="fa-sharp fa-solid fa-arrow-right"></i>
                 </div>
@@ -65,5 +79,7 @@ const showNews = (allNews) => {
         </div>
         `
         newsResult.appendChild(div);
+        toggleSpinner('none');
+        toggleSearchResult('block');
     })
 }
