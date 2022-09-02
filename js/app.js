@@ -43,10 +43,24 @@ const showNews = (allNews) => {
         div.classList.add("news");
         div.innerHTML = `
         <div class="news-details">
-            <img src="${news?.image_url}" alt="">
             <div>
-                <h3>${news?.title}</h3>
-                <p class="news-desc">${news?.details.slice(0,700)}<span title="more...">...</span></p>
+                <div class="news-x">
+                <img src="${news?.image_url}" alt="">
+                <div>
+                    <h3>${news?.title}</h3>
+                    <p class="news-desc">${news?.details.slice(0,700)}<span title="more...">...</span></p>
+                </div>
+                 </div>
+                <div class="author-info">
+                    <div class="author-det">
+                    <img class="author-img" src="${news?.author?.img}" alt="">
+                    <div><p class="author-name">${news?.author?.name}</p>
+                    <p class="autor-date">${news?.author?.published_date.split(" ")[0]}</p> </div>
+                    </div>
+                    <p><i class="fa-regular fa-eye"> </i><span class="rating">${news?.total_view ? news?.total_view : 'Not Found'}</span></p>
+                    <p><b>Rating:</b> ${news?.rating?.number}</p>
+                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                </div>
             </div>
         </div>
         `
