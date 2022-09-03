@@ -155,4 +155,7 @@ color: #121221;
     .news-x{
         flex-direction: column;
     }
+    .modal-img{
+        margin: 0;
+    }
 }

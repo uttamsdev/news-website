@@ -53,6 +53,7 @@ const displayNews = (id) => {
 const showNews = (allNews) => {
     const newsResult = document.querySelector(".news-result");
     newsResult.textContent = "";
+    // toggleSearchResult("none");
     // console.log("len",allNews.length);
     const count = allNews.length;
     if(count !== 0){
@@ -64,9 +65,20 @@ const showNews = (allNews) => {
         newsResult.textContent = "";
         return;
     }
+
+    //sorting news based on most viewed
+    let sortedData = allNews.sort((a,b) => {
+        const aView = a?.total_view;
+        const bView = b?.total_view;
+        return (aView < bView) ? 1 : -1;
+    });
+    console.log("sorted data",sortedData);
    
+
+    // toggleSearchResult("none");
+    // newsResult.textContent = "";
     // console.log(allNews);
-    allNews?.forEach(news => {
+    sortedData?.forEach(news => {
         // author name: news?.author?.name
         // news title : news?.title
         // <img src="${news?.thumbnail_url}" alt="">
