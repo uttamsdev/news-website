@@ -73,7 +73,7 @@ const showNews = (allNews) => {
         return (aView < bView) ? 1 : -1;
     });
     console.log("sorted data",sortedData);
-   
+//    newsResult.textContent = "";
 
     // toggleSearchResult("none");
     // newsResult.textContent = "";
